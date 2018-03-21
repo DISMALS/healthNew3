@@ -3,7 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AppRoutingModule } from './app-routing.module';
+
 // 各个模块
+import { MainModule } from './main/main.module';
 import { AppCommonModule } from './common/common.module';
 import { AuthorizeModule } from './authorize/authorize.module';
 import { HomeModule } from './home/home.module';
@@ -29,7 +32,21 @@ import { AppComponent } from './app.component';
     BrowserModule,
     HttpModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppCommonModule,
+    MainModule,
+    AuthorizeModule,
+    HomeModule,
+    AppointmentModule,
+    PatientsModule,
+    ReportModule,
+    ClinicModule,
+    BillingModule,
+    OperationModule,
+    ScrmModule,
+    KnowledgeModule,
+    ConfigurationModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
