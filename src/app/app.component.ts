@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import * as $ from '../../node_modules/jquery/dist/jquery.min.js';
+
+// 国际化
+import { TranslateService } from 'ng2-translate';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +9,13 @@ import * as $ from '../../node_modules/jquery/dist/jquery.min.js';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
-  test() {
-    console.log($('.container'));
+  constructor(public translate: TranslateService) {
+    // set i18n begin
+    translate.addLangs(['zh', 'en']);
+    translate.setDefaultLang('zh');
+    const browserLang = translate.getBrowserLang();
+    console.log(browserLang);
+    translate.use(browserLang.match(/zh|en/) ? browserLang : 'zh');
+    // set i18n end
   }
 }

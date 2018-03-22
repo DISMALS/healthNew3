@@ -1,28 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+// 国际化
+// import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+// import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
+
+// 全局公共模块
+import { AppCommonModule } from './common/common.module';
+
+// 组件
+import { AppComponent } from './app.component';
+
+// 路由
 import { AppRoutingModule } from './app-routing.module';
 
-// 各个模块
-import { MainModule } from './main/main.module';
-import { AppCommonModule } from './common/common.module';
-import { AuthorizeModule } from './authorize/authorize.module';
-import { HomeModule } from './home/home.module';
-import { AppointmentModule } from './appointment/appointment.module';
-import { PatientsModule } from './patients/patients.module';
-import { ReportModule } from './report/report.module';
-import { ClinicModule } from './clinic/clinic.module';
-import { BillingModule } from './billing/billing.module';
-import { OperationModule } from './operation/operation.module';
-import { ScrmModule } from './scrm/scrm.module';
-import { KnowledgeModule } from './knowledge/knowledge.module';
-import { ConfigurationModule } from './configuration/configuration.module';
-
-
-
-import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
@@ -30,22 +24,15 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    TranslateModule.forRoot({
+      provide: TranslateLoader,
+      useFactory: (http: Http) => new TranslateStaticLoader(http, '../assets/i18n/', '.json'),
+      deps: [Http]
+    }),
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
     AppCommonModule,
-    MainModule,
-    AuthorizeModule,
-    HomeModule,
-    AppointmentModule,
-    PatientsModule,
-    ReportModule,
-    ClinicModule,
-    BillingModule,
-    OperationModule,
-    ScrmModule,
-    KnowledgeModule,
-    ConfigurationModule,
     AppRoutingModule
   ],
   providers: [],

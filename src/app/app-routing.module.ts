@@ -1,24 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './authorize/login/login.component';
-import { MianCommonComponent } from './main/main-common/main-common.component';
-
 const routes: Routes = [
     {
         path: '',
-        component: LoginComponent,
-        loadChildren: './authorize/authorize-routing.module#AuthorizeRoutingModule'
+        pathMatch: 'full',
+        redirectTo: 'login'
+    }, {
+        path: 'login',
+        loadChildren: './authorize/authorize.module#AuthorizeModule'
     }, {
         path: 'main',
-        component: MianCommonComponent,
-        loadChildren: './main/main-routing.module#MainRoutingModule'
+        loadChildren: './main/main.module#MainModule'
+    }, {
+        path: '**',
+        redirectTo: 'login'
     }
 ];
 
 @NgModule({
     imports: [ RouterModule.forRoot(routes) ],
-    exports: [RouterModule]
+    exports: [ RouterModule ]
 })
 export class AppRoutingModule { }
 

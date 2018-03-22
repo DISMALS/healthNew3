@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MianCommonComponent } from './main-common/main-common.component';
+
+// 路由
+import { MainRoutingModule } from './main-routing.module';
+
+// 组件
+import { MainComponent } from './main.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    MainRoutingModule
   ],
-  declarations: [MianCommonComponent]
+  declarations: [
+    MainComponent
+  ]
 })
 export class MainModule { }
