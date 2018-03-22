@@ -3,13 +3,16 @@ import { CommonModule } from '@angular/common';
 import { HttpModule, Http } from '@angular/http';
 
 // 国际化
-import { TranslateModule } from 'ng2-translate';
+import { TranslateModule, TranslateLoader, TranslateStaticLoader, TranslateService } from 'ng2-translate';
 
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule
   ],
+  exports: [TranslateModule],
+  providers: [TranslateService],
   declarations: []
 })
-export class AppCommonModule { }
+export class AppCommonModule {}
+
