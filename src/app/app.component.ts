@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
-// 国际化
-import { TranslateService } from 'ng2-translate';
+// 公共服务
+import { SharedService } from './common/shared.service';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,17 @@ import { TranslateService } from 'ng2-translate';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(public translate: TranslateService) {
-    // set i18n begin
-    translate.addLangs(['zh', 'en']);
-    translate.setDefaultLang('zh');
-    const browserLang = translate.getBrowserLang();
-    console.log(browserLang);
-    translate.use(browserLang.match(/zh|en/) ? browserLang : 'zh');
-    // set i18n end
+  constructor(public translate: SharedService) {
+  }
+
+  changeLang() {
+    let lang: string;
+    const localLang = window.localStorage.getItem('lang');
+    if (localLang === 'zh') {
+      lang = 'en';
+    }else {
+      lang = 'zh';
+    }
+    this.translate.setLang(lang);
   }
 }

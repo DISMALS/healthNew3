@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 // 全局公共模块
-import { AppCommonModule } from '../common/common.module';
+import { SharedModule } from '../common/shared.module';
+
 // 组件
 import { KnowledgeComponent } from './knowledge.component';
 import { KnowledgeListComponent } from './knowledge-list/knowledge-list.component';
@@ -12,7 +14,7 @@ import { KnowledgeRoutingModule } from './knowledge-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    AppCommonModule,
+    SharedModule,
     KnowledgeRoutingModule
   ],
   declarations: [KnowledgeComponent, KnowledgeListComponent]

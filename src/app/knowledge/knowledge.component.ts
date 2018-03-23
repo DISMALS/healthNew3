@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// 国际化
-import { TranslateService } from 'ng2-translate';
+// 公共服务
+import { SharedService } from '../common/shared.service';
 
 @Component({
   selector: 'app-knowledge',
@@ -9,18 +9,8 @@ import { TranslateService } from 'ng2-translate';
 })
 export class KnowledgeComponent implements OnInit {
 
-  constructor(public translate: TranslateService) { 
-    // set i18n begin
-    translate.addLangs(['zh', 'en']);
-    translate.setDefaultLang('zh');
-    const browserLang = translate.getBrowserLang();
-    console.log(browserLang);
-    translate.use(browserLang.match(/zh|en/) ? browserLang : 'zh');
-    // set i18n end
+  constructor(public translate: SharedService) {
   }
-  
-  
-
   ngOnInit() {
   }
 

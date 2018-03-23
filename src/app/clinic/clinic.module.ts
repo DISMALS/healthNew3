@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// 全局公共模块
+import { SharedModule } from '../common/shared.module';
 
 // 组件
 import { ClinicComponent } from './clinic.component';
@@ -12,6 +14,7 @@ import { ClinicRoutingModule } from './clinic-routing.module';
 @NgModule({
   imports: [
     CommonModule,
+    SharedModule,
     ClinicRoutingModule
   ],
   declarations: [ClinicComponent, ClinicListComponent]

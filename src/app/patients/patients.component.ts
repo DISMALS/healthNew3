@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+// 公共服务
+import { SharedService } from '../common/shared.service';
+
 @Component({
   selector: 'app-patients',
   templateUrl: './patients.component.html',
@@ -7,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public translate: SharedService) { }
 
   ngOnInit() {
   }

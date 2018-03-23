@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // 全局公共模块
-import { AppCommonModule } from '../common/common.module';
+import { SharedModule } from '../common/shared.module';
 
 // 路由
 import { MainRoutingModule } from './main-routing.module';
@@ -13,7 +13,7 @@ import { MainComponent } from './main.component';
 @NgModule({
   imports: [
     CommonModule,
-    AppCommonModule,
+    SharedModule,
     MainRoutingModule
   ],
   declarations: [
