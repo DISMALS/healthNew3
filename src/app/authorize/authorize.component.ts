@@ -18,13 +18,14 @@ export class AuthorizeComponent implements OnInit {
   }
 
   loginAppliction() {
+    console.log('点击了！');
     const userInfo = {
       orgId: 3,
       password: '123456',
       practiceId: 17,
       userName: 'xiaoyu'
     };
-    this.authorize.getUserInfo('https://libratest.yunpractice.com/rest/users/authorize', userInfo, {});
+    this.authorize.getUserInfo('users/authorize', userInfo, {});
   }
 
 }

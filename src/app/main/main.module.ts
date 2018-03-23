@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
 
 // 全局公共模块
 import { SharedModule } from '../common/shared.module';
@@ -13,6 +14,7 @@ import { MainComponent } from './main.component';
 @NgModule({
   imports: [
     CommonModule,
+    HttpModule,
     SharedModule,
     MainRoutingModule
   ],

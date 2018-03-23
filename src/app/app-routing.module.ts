@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+// 路由守卫
+import { CanActivateTeam } from './common/guard-router';
+
 const routes: Routes = [
     {
         path: '',
@@ -11,6 +14,7 @@ const routes: Routes = [
         loadChildren: './authorize/authorize.module#AuthorizeModule'
     }, {
         path: 'main',
+        canActivate:[CanActivateTeam],
         loadChildren: './main/main.module#MainModule'
     }, {
         path: '**',
@@ -20,7 +24,8 @@ const routes: Routes = [
 
 @NgModule({
     imports: [ RouterModule.forRoot(routes) ],
-    exports: [ RouterModule ]
+    exports: [ RouterModule ],
+    providers: [CanActivateTeam]
 })
 export class AppRoutingModule { }
 
