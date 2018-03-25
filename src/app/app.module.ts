@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // 国际化
@@ -10,14 +10,14 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // 服务
 import { SharedService } from './common/shared.service';
-import { HttpInterceptorService } from './common/http-interceptor.service';
+import { InterceptorService } from './common/http-interceptor.service';
+import { HttpCommonService } from './common/http-common.service';
 
 // 组件
 import { AppComponent } from './app.component';
 
 // 路由
 import { AppRoutingModule } from './app-routing.module';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -28,6 +28,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -40,12 +41,13 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     AppRoutingModule
   ],
   providers: [
-    SharedService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: HttpInterceptorService,
+      useClass: InterceptorService,
       multi: true
-    }
+    },
+    SharedService,
+    HttpCommonService
   ],
   bootstrap: [AppComponent]
 })

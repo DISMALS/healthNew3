@@ -8,7 +8,7 @@ export class CanActivateTeam implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot ){
         console.log(route);
         console.log(state);
-        let isSkip = false;
+        let isSkip = true;
         if(!isSkip){
             this.route.navigate(['/login']);
             return isSkip;

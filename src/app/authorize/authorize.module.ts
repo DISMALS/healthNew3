@@ -12,16 +12,27 @@ import { LoginMainComponent } from './login-main/login-main.component';
 
 // 服务
 import { AuthorizeService } from './authorize.service';
+import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { InterceptorService } from '../common/http-interceptor.service';
+import { HttpCommonService } from '../common/http-common.service';
 
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
+    // HttpClientModule,
     HttpModule,
     AuthorizeRoutingModule
   ],
   declarations: [AuthorizeComponent, LoginMainComponent],
-  providers: [AuthorizeService]
+  providers: [
+    AuthorizeService,
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: InterceptorService,
+    //   multi: true
+    // }
+  ],
 })
 export class AuthorizeModule { }
