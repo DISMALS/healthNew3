@@ -15,7 +15,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 // 服务
 import { SharedService } from './common/shared.service';
 import { InterceptorService } from './common/http-interceptor.service';
-import { HttpCommonService } from './common/http-common.service';
 
 // 组件
 import { AppComponent } from './app.component';
@@ -57,8 +56,7 @@ export function createTranslateLoader(http: Http) {
       useClass: InterceptorService,
       multi: true
     },
-    SharedService,
-    HttpCommonService
+    SharedService
   ],
   bootstrap: [AppComponent]
 })

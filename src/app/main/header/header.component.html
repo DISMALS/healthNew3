@@ -1,8 +1,8 @@
-<div class="row header">
-  <div class="pull-left logo"><img src="http://placehold.it/150x44" alt=""></div>
+<div class="header">
+  <div class="pull-left logo"><img src="http://placehold.it/120x24" alt=""></div>
   <div class="menu pull-left">
-    <ul class="row">
-      <li class="menu-item" *ngFor="let menu of menus">
+    <ul class="menu-ul">
+      <li class="menu-item pull-left" *ngFor="let menu of menus">
         <nz-dropdown [nzTrigger]="'click'">
           <a class="menu-link" nz-dropdown>{{menu.levelOne}}</a>
           <ul nz-menu *ngIf="menu.levelTwo.length > 0">
@@ -11,20 +11,23 @@
               <div *ngIf="itemMenu.subMenu.length > 0" nz-submenu>
                 <a [innerHtml]="itemMenu.subItem" title></a>
                 <ul *ngFor="let subMenu of itemMenu.subMenu">
-                  <li nz-menu-item><a [innerHtml]="subItem"></a></li>
+                  <li nz-menu-item><a [innerHtml]="subMenu.subItem"></a></li>
                 </ul>
               </div>
             </li>
           </ul>
         </nz-dropdown>
-        <!-- <nz-dropdown [nzTrigger]="'click'">
-          <ul nz-menu>
-            <li nz-menu-item>1st menu item</li>
-            <li nz-menu-item>2nd menu item</li>
-            <li nz-menu-item>3rd menu item</li>
-          </ul>
-        </nz-dropdown> -->
       </li>
     </ul>
+  </div>
+  <div class="menu-more">
+    <nz-dropdown [nzTrigger]="'click'">
+      <a class="more-btn" nz-dropdown>更多</a>
+      <ul class="more-list" nz-menu>
+        <li nz-menu-item><a>更多列表</a></li>
+      </ul>
+    </nz-dropdown>
+    
+
   </div>
 </div>

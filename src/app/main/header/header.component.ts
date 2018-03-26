@@ -7,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   public menus: Array<any>;
+  public menuAllList: Array<any>;
   constructor() { }
 
   ngOnInit() {
-    this.menus = [
+    this.menuAllList = [
       {
         levelOne: '首页',
         levelTwo: [
@@ -149,6 +150,7 @@ export class HeaderComponent implements OnInit {
         ]
       }
     ];
+    this.menus = this.menuAllList.splice(0,5);
   }
 
 }

@@ -7,7 +7,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 // 公共服务
 import { SharedService } from './shared.service';
-import { HttpCommonService } from './http-common.service';
 
 // 功能插件
 import { NgZorroAntdModule } from 'ng-zorro-antd';
@@ -18,7 +17,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
     TranslateModule.forChild(),
     NgZorroAntdModule.forRoot()
   ],
-  providers: [SharedService, HttpCommonService],
+  providers: [SharedService],
   exports: [TranslateModule, NgZorroAntdModule],
   declarations: []
 })

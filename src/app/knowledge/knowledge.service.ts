@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpCommonService } from '../common/http-common.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class KnowledgeService {
-    constructor(public http: HttpCommonService) {}
+    constructor(public http: HttpClient) {}
     getUserInfo(body) {
         return this.http.post('users/authorize', body);
     }
