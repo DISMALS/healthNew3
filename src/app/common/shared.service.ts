@@ -23,3 +23,4 @@ export class SharedService {
     this.translate.use(lang);
   }
 }
+

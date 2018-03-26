@@ -12,6 +12,7 @@ import { MainRoutingModule } from './main-routing.module';
 
 // 组件
 import { MainComponent } from './main.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { MainComponent } from './main.component';
     MainRoutingModule
   ],
   declarations: [
-    MainComponent
+    MainComponent,
+    HeaderComponent
   ],
   // providers: [
   //   {

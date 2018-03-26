@@ -18,14 +18,19 @@ export class AuthorizeComponent implements OnInit {
   }
 
   loginAppliction() {
-    console.log('点击了！');
     const userInfo = {
       orgId: 3,
       password: '123456',
       practiceId: 17,
       userName: 'xiaoyu'
     };
-    this.authorize.getUserInfo('users/authorize', userInfo, {});
+    this.authorize.getUserInfo(userInfo).toPromise().then((data: any) => {
+        console.log(data);
+        window.lkHealth = data.values;
+        window.sessionStorage.setItem('userInfo', JSON.stringify(data.values));
+    }).catch(error => {
+      console.error(error);
+    });
   }
 
 }

@@ -11,12 +11,16 @@ import { KnowledgeListComponent } from './knowledge-list/knowledge-list.componen
 // 路由
 import { KnowledgeRoutingModule } from './knowledge-routing.module';
 
+// 服务
+import { KnowledgeService } from './knowledge.service';
+
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     KnowledgeRoutingModule
   ],
-  declarations: [KnowledgeComponent, KnowledgeListComponent]
+  declarations: [KnowledgeComponent, KnowledgeListComponent],
+  providers: [KnowledgeService]
 })
 export class KnowledgeModule { }

@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule, Http } from '@angular/http';
-import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+// 功能插件
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 // 国际化
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
@@ -16,9 +20,14 @@ import { HttpCommonService } from './common/http-common.service';
 // 组件
 import { AppComponent } from './app.component';
 
+
 // 路由
 import { AppRoutingModule } from './app-routing.module';
 
+// 国际化
+export function createTranslateLoader(http: Http) {
+  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
+}
 
 
 @NgModule({
@@ -27,15 +36,17 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (http: Http) => new TranslateHttpLoader( http, '../assets/i18n/', '.json'),
+        useFactory: createTranslateLoader,
         deps: [Http]
       }
     }),
+    NgZorroAntdModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule

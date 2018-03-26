@@ -14,7 +14,7 @@ const routes: Routes = [
         loadChildren: './authorize/authorize.module#AuthorizeModule'
     }, {
         path: 'main',
-        canActivate:[CanActivateTeam],
+        canActivate: [CanActivateTeam],
         loadChildren: './main/main.module#MainModule'
     }, {
         path: '**',

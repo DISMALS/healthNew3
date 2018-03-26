@@ -1,99 +1,65 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpInterceptor, HttpHeaders, HttpRequest, HttpResponse, HttpEvent, HttpHandler, HttpErrorResponse } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { catchError } from 'rxjs/operators';
-import { mergeMap } from 'rxjs/operators';
-
-@Injectable()
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class InterceptorService implements HttpInterceptor {
-    public router: Router;
+    public serverUrl: string = environment.serverUrl;
+    public urlTime = {};
+    constructor(public router: Router) {}
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        console.log('拦截器');
-        return next.handle(req).catch(resError => {
-            let notice = '';
-            if (resError.status === 401) {
-                notice = '会话超时';
+        let _req;
+        // 一秒内不允许多次请求数据
+        if (req.method !== 'GET' && this.urlTime[req.url] && Date.now() - this.urlTime[req.url] < 1000) {
+            return Observable.throw(new Error('overrequest'));
+        } else if (req.method !== 'GET') {
+            this.urlTime[req.url] = Date.now();
+        }
+        // 添加请求地址
+        if (req.url.indexOf('//') < 0) {
+            _req = req.clone({
+                url: `${this.serverUrl}/${req.url}`,
+                withCredentials: true
+            });
+        }
+
+        // 设置header
+        if (!_req.headers.get('Content-Type')) {
+            _req = _req.clone({
+                setHeaders: {
+                    'Content-Type': 'application/json'
+                }
+            });
+        }
+
+        // 设置token
+        if (_req.url.indexOf('users/authorize') < 0) {
+            const userinfo = JSON.parse(window.sessionStorage.getItem('userInfo'));
+            if (userinfo) {
+                _req = _req.clone({
+                    setHeaders: {
+                        'X-Auth-Token': userinfo.token
+                    }
+                });
+            }else {
                 this.router.navigate(['/login']);
-            } else if (resError.status !== 400) {
+            }
+        }
+        // 监听请求时的错误
+        return next.handle(_req).catch((error: any) => {
+            let notice = '';
+            if (error.status === 401) {
+                notice = '会话超时';
+                this.router.navigateByUrl('/login/login-main');
+            } else if (error.status !== 400) {
                 notice = '网络异常';
             }
-
-            return Observable.throw(new Error('错误了！'));
+            return Observable.throw(error);
         });
     }
 }
-
-
-// import { Injectable } from '@angular/core';
-// import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-// import { Router } from '@angular/router';
-// import { Observable } from 'rxjs/Observable';
-
-// import { environment } from 'environments/environment';
-// import { NotificationService } from 'app/core/notification/notification.service';
-
-// @Injectable()
-// export class CommonInterceptorService implements HttpInterceptor {
-
-//   private urlTime = {};
-
-//   constructor(
-//     private notification: NotificationService,
-//     private router: Router) { }
-
-//   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-//     if (req.method !== 'GET' && this.urlTime[req.url] && Date.now() - this.urlTime[req.url] < 1000) {
-//       this.notification.show({
-//         title: '请求过于频繁',
-//         type: 'error',
-//         duration: 1500,
-//         close: true
-//       });
-//       return Observable.throw(new Error('overrequest'));
-//     } else if (req.method !== 'GET') {
-//       this.urlTime[req.url] = Date.now();
-//     }
-
-//     let _req = req.clone({ withCredentials: true });
-
-//     if (_req.url.indexOf('//') === -1) {
-//       _req = _req.clone({ url: environment.apiPath + _req.url });
-//     }
-
-//     // IE 浏览器可能对get请求结果进行缓存
-//     // if (_req.method == 'GET') {
-//     //   _req = _req.clone({
-//     //     setHeaders: {
-//     //       'If-Modified-Since': '0',
-//     //       'Cache-Control': 'no-cache'
-//     //     }
-//     //   })
-//     // }
-
-//     return next.handle(_req).catch(resError => {
-//       let notice = '';
-//       if (resError.status === 401) {
-//         notice = '会话超时';
-//         this.router.navigateByUrl('/welcome/login');
-//       } else if (resError.status !== 400) {
-//         notice = '网络异常';
-//       }
-
-//       if (notice) {
-//         this.notification.show({
-//           title: notice,
-//           type: 'error',
-//           duration: 3000,
-//           close: true
-//         });
-//       }
-
-//       return Observable.throw(resError);
-//     });
-//   }
-
-// }

@@ -9,13 +9,17 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SharedService } from './shared.service';
 import { HttpCommonService } from './http-common.service';
 
+// 功能插件
+import { NgZorroAntdModule } from 'ng-zorro-antd';
+
 @NgModule({
   imports: [
     CommonModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    NgZorroAntdModule.forRoot()
   ],
   providers: [SharedService, HttpCommonService],
-  exports: [TranslateModule],
+  exports: [TranslateModule, NgZorroAntdModule],
   declarations: []
 })
 export class SharedModule {}
