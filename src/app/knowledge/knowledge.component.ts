@@ -20,15 +20,13 @@ export class KnowledgeComponent implements OnInit {
   loginAppliction() {
     const userInfo = {
       orgId: 3,
-      password: '1234567',
+      password: '123456',
       practiceId: 17,
       userName: 'xiaoyu'
     };
-    this.knowledgeService.getUserInfo(userInfo).toPromise().then((data: any) => {
+    this.knowledgeService.getUserInfo(userInfo).subscribe(data => {
       console.log(data);
-  }).catch(error => {
-    console.log(error);
-  });
+    });
   }
 
 }

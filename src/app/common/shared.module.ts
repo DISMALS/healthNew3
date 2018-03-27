@@ -11,15 +11,19 @@ import { SharedService } from './shared.service';
 // 功能插件
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
+// 全局指令模块
+import { DirectiveModule } from '../common/directive/directive.module';
+
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule.forChild(),
-    NgZorroAntdModule.forRoot()
+    NgZorroAntdModule,
+    DirectiveModule
   ],
   providers: [SharedService],
-  exports: [TranslateModule, NgZorroAntdModule],
-  declarations: []
+  declarations: [],
+  exports: [TranslateModule, NgZorroAntdModule, DirectiveModule],
 })
 export class SharedModule {}
 

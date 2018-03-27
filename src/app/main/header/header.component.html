@@ -2,19 +2,23 @@
   <div class="pull-left logo"><img src="http://placehold.it/120x24" alt=""></div>
   <div class="menu pull-left">
     <ul class="menu-ul">
-      <li class="menu-item pull-left" *ngFor="let menu of menus">
+      <li class="menu-item pull-left" *ngFor="let menu of menus" routerLinkActive="menu-item-active">
         <nz-dropdown [nzTrigger]="'click'">
-          <a class="menu-link" nz-dropdown>{{menu.levelOne}}</a>
-          <ul nz-menu *ngIf="menu.levelTwo.length > 0">
-            <li  *ngFor="let itemMenu of menu.levelTwo;">
-              <div *ngIf="itemMenu.subMenu.length == 0" nz-menu-item><a [innerHtml]="itemMenu.item"></a></div>
-              <div *ngIf="itemMenu.subMenu.length > 0" nz-submenu>
-                <a [innerHtml]="itemMenu.subItem" title></a>
-                <ul *ngFor="let subMenu of itemMenu.subMenu">
-                  <li nz-menu-item><a [innerHtml]="subMenu.subItem"></a></li>
-                </ul>
-              </div>
-            </li>
+          <a class="menu-link" nz-dropdown [routerLink]="['home']">{{menu.levelOne}}</a>
+          <ul nz-menu>
+            <ng-container *ngFor="let itemMenu of menu.levelTwo">
+                <ng-container *ngIf="itemMenu.subMenu.length == 0">
+                    <li nz-menu-item><a [innerHtml]="itemMenu.item"></a></li>
+                </ng-container>
+                <ng-container *ngIf="itemMenu.subMenu.length > 0">
+                    <li nz-submenu>
+                        <a [innerHtml]="itemMenu.item" title></a>
+                        <ul *ngFor="let subMenu of itemMenu.subMenu">
+                          <li nz-menu-item><a [innerHtml]="subMenu.subItem"></a></li>
+                        </ul>
+                    </li>
+                </ng-container>
+            </ng-container>
           </ul>
         </nz-dropdown>
       </li>

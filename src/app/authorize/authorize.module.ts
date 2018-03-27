@@ -12,7 +12,6 @@ import { LoginMainComponent } from './login-main/login-main.component';
 // 服务
 import { AuthorizeService } from './authorize.service';
 
-
 @NgModule({
   imports: [
     CommonModule,

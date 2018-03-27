@@ -11,7 +11,7 @@ import { AuthorizeService } from './authorize.service';
   styleUrls: ['./authorize.component.scss']
 })
 export class AuthorizeComponent implements OnInit {
-
+  public newPermission = 'FUN_PROVIDER_ENCOUNTER_CM';
   constructor(public translate: SharedService, public authorize: AuthorizeService) { }
 
   ngOnInit() {
@@ -24,12 +24,10 @@ export class AuthorizeComponent implements OnInit {
       practiceId: 17,
       userName: 'xiaoyu'
     };
-    this.authorize.getUserInfo(userInfo).toPromise().then((data: any) => {
-        console.log(data);
-        window.lkHealth = data.values;
-        window.sessionStorage.setItem('userInfo', JSON.stringify(data.values));
-    }).catch(error => {
-      console.error(error);
+    this.authorize.getUserInfo(userInfo).subscribe((data: any) => {
+      console.log(data);
+      window.lkHealth = data.values;
+      window.sessionStorage.setItem('userInfo', JSON.stringify(data.values));
     });
   }
 

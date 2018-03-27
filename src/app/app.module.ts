@@ -6,7 +6,9 @@ import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule, HttpHeaders } from '@a
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // 功能插件
-import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { NgZorroAntdModule, NzMessageService, NZ_MESSAGE_CONFIG, NzNotificationService } from 'ng-zorro-antd'; // UI组件
+// import { NotifyModule, NotifyService } from 'notify-angular'; // 消息提示
+// import { LoadingBarModule, LoadingBarService } from '@ngx-loading-bar/core';
 
 // 国际化
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
@@ -19,6 +21,8 @@ import { InterceptorService } from './common/http-interceptor.service';
 // 组件
 import { AppComponent } from './app.component';
 
+// 全局指令模块
+import { DirectiveModule } from './common/directive/directive.module';
 
 // 路由
 import { AppRoutingModule } from './app-routing.module';
@@ -31,7 +35,7 @@ export function createTranslateLoader(http: Http) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +52,7 @@ export function createTranslateLoader(http: Http) {
     NgZorroAntdModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
+    DirectiveModule,
     AppRoutingModule
   ],
   providers: [
@@ -56,8 +61,18 @@ export function createTranslateLoader(http: Http) {
       useClass: InterceptorService,
       multi: true
     },
-    SharedService
+    {
+      provide: NZ_MESSAGE_CONFIG,
+      useValue: {
+        nzDuration: 3000,
+        nzMaxStack: 5
+      }
+    },
+    SharedService,
+    NzMessageService,
+    NzNotificationService
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,6 +9,7 @@ import { SharedService } from './common/shared.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  public permissionsOne = 'FUN_CRM_CUSTOM_EXPORT';
   constructor(public translate: SharedService) {
   }
 

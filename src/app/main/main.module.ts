@@ -5,7 +5,6 @@ import { HttpClient, HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common
 
 // 全局公共模块
 import { SharedModule } from '../common/shared.module';
-import { InterceptorService } from '../common/http-interceptor.service';
 
 // 路由
 import { MainRoutingModule } from './main-routing.module';
@@ -25,12 +24,6 @@ import { HeaderComponent } from './header/header.component';
     MainComponent,
     HeaderComponent
   ],
-  // providers: [
-  //   {
-  //     provide: HTTP_INTERCEPTORS,
-  //     useClass: HttpInterceptorService,
-  //     multi: true
-  //   }
-  // ]
+  providers: []
 })
 export class MainModule { }
