@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
       {
         levelOne: '首页',
         permissions: 'FUN_CRM_CUSTOM_EXPORT',
+        route: ['home'],
         levelTwo: [
           {
             item: '患者预约',
@@ -29,10 +30,12 @@ export class HeaderComponent implements OnInit {
       }, {
         levelOne: '预约',
         permissions: 'FUN_NURSE_PATIENT_LIST',
+        route: ['appointment'],
         levelTwo: []
       }, {
         levelOne: '患者',
         permissions: 'FUN_CONSULT_SCHEDULE',
+        route: ['patients'],
         levelTwo: [
           {
             item: '患者预约',
@@ -55,6 +58,7 @@ export class HeaderComponent implements OnInit {
       }, {
         levelOne: '报表',
         permissions: 'FUN_INVOICE_PAID',
+        route: ['report'],
         levelTwo: [
           {
             item: '患者预约',
@@ -74,6 +78,7 @@ export class HeaderComponent implements OnInit {
       }, {
         levelOne: '诊所',
         permissions: 'FUN_PHARMACY_DIC_WD',
+        route: ['clinic'],
         levelTwo: [
           {
             item: '患者预约',
@@ -93,6 +98,7 @@ export class HeaderComponent implements OnInit {
       }, {
         levelOne: '收费',
         permissions: 'FUN_MEMBER_INFO',
+        route: ['billing'],
         levelTwo: [
           {
             item: '患者预约',
@@ -112,6 +118,7 @@ export class HeaderComponent implements OnInit {
       }, {
         levelOne: '运营',
         permissions: 'FUN_PROVIDE_RECORD',
+        route: ['operation'],
         levelTwo: [
           {
             item: '患者预约',
@@ -131,6 +138,7 @@ export class HeaderComponent implements OnInit {
       }, {
         levelOne: 'SCRM',
         permissions: 'FUN_LABORATORY_ALL',
+        route: ['scrm'],
         levelTwo: [
           {
             item: '患者预约',
@@ -145,6 +153,7 @@ export class HeaderComponent implements OnInit {
       }, {
         levelOne: '知识库',
         permissions: 'FUN_WAREHOUSE_DELIVER_ALL',
+        route: ['knowledge'],
         levelTwo: [
           {
             item: '患者预约',
@@ -159,6 +168,7 @@ export class HeaderComponent implements OnInit {
       }, {
         levelOne: '系统配置',
         permissions: 'FUN_PHARMACY_STOCK_IN',
+        route: ['configuration'],
         levelTwo: [
           {
             item: '患者预约',

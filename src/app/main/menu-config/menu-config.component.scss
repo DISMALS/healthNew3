@@ -1,0 +1,87 @@
+@import "../../common/scss/all-color.scss";
+.menu-config-main{
+    width:200px;
+    .menu-config-head{
+        width:100%;
+        height:30px;
+        line-height:30px;
+        background:$base-color;
+        box-shadow:0 1px 0 0 $box-shadow-color;
+        border-radius:2px 2px 1px 1px;
+        font-size: 12px;
+        .config-head-l{
+            float: left;
+            color:$warn-font-color;
+            padding-left:10px;
+        }
+        .config-head-r{
+            float:right;
+            color:$active-bg-color;
+            padding-right:10px;
+        }
+    }
+    .menu-config-content{
+        width:100%;
+        height: auto;
+        display: flow-root;
+        .content-head{
+            display: block;
+            height:24px;
+            line-height: 24px;
+            font-size: 12px;
+            padding-left:10px;
+        }
+        .config-content-l{
+            float: left;
+            width:50%;
+            background:$flyout-bg-color1;
+            .l-head{
+                color:$active-bg-color;
+            }
+            .left-content{
+                li{
+                    color:$menu-bg-color;
+                    background-color:transparent;
+                    &:hover{
+                        color:$base-color;
+                        background-color:$active-bg-color;
+                    }
+                    .ye{
+                        display: inline-block;
+                        margin-left:10px;
+                        font-size:12px;
+                    }
+                }
+            }
+        }
+        .config-content-r{
+            float: left;
+            width:50%;
+            background:$flyout-bg-color2;
+            .r-head{
+                color:$warn-font-color;
+            }
+            .right-content{
+                overflow-y: auto;
+                li{
+                    color:$normal-font-color;
+                    background-color:transparent;
+                    &:hover{
+                        background-color:$flyout-bg-color3;
+                    }
+                }
+            }
+        }
+        .config-content-list{
+            width:100%;
+            height: 160px;
+            li{
+                width:calc("~100% - 10px");
+                height: 32px;
+                line-height: 32px;
+                padding-left:10px;
+                font-size: 14px;
+            }
+        }
+    }
+}

@@ -4,17 +4,17 @@
     <ul class="menu-ul">
       <li class="menu-item pull-left" *ngFor="let menu of menus" routerLinkActive="menu-item-active">
         <nz-dropdown [nzTrigger]="'click'">
-          <a class="menu-link" nz-dropdown [routerLink]="['home']">{{menu.levelOne}}</a>
+          <a class="menu-link" nz-dropdown [routerLink]="menu.route">{{menu.levelOne}}</a>
           <ul nz-menu>
             <ng-container *ngFor="let itemMenu of menu.levelTwo">
                 <ng-container *ngIf="itemMenu.subMenu.length == 0">
-                    <li nz-menu-item><a [innerHtml]="itemMenu.item"></a></li>
+                    <li nz-menu-item><a [innerHtml]="itemMenu.item" class="font-size-14"></a></li>
                 </ng-container>
                 <ng-container *ngIf="itemMenu.subMenu.length > 0">
                     <li nz-submenu>
-                        <a [innerHtml]="itemMenu.item" title></a>
+                        <a [innerHtml]="itemMenu.item" title class="font-size-14"></a>
                         <ul *ngFor="let subMenu of itemMenu.subMenu">
-                          <li nz-menu-item><a [innerHtml]="subMenu.subItem"></a></li>
+                          <li nz-menu-item><a [innerHtml]="subMenu.subItem" class="font-size-14"></a></li>
                         </ul>
                     </li>
                 </ng-container>
@@ -22,15 +22,26 @@
           </ul>
         </nz-dropdown>
       </li>
+      <li class="menu-item pull-left">
+        <nz-dropdown [nzTrigger]="'hover'">
+          <a  class="menu-link" nz-dropdown>更多</a>
+          <ul class="more-list" nz-menu>
+            <li nz-menu-item><a>更多列表</a></li>
+          </ul>
+        </nz-dropdown>
+      </li>
+      <li class="menu-item pull-left">
+        <nz-dropdown [nzTrigger]="'click'" [nzClickHide]="false">
+          <a  class="menu-link confguration-icon" nz-dropdown></a>
+          <div class="menu-config" nz-menu>
+            <app-menu-config></app-menu-config>
+          </div>
+        </nz-dropdown>
+      </li>
     </ul>
   </div>
   <div class="menu-more">
-    <nz-dropdown [nzTrigger]="'click'">
-      <a class="more-btn" nz-dropdown>更多</a>
-      <ul class="more-list" nz-menu>
-        <li nz-menu-item><a>更多列表</a></li>
-      </ul>
-    </nz-dropdown>
+    
     
 
   </div>

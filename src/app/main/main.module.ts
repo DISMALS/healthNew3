@@ -12,6 +12,7 @@ import { MainRoutingModule } from './main-routing.module';
 // 组件
 import { MainComponent } from './main.component';
 import { HeaderComponent } from './header/header.component';
+import { MenuConfigComponent } from './menu-config/menu-config.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { HeaderComponent } from './header/header.component';
   ],
   declarations: [
     MainComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuConfigComponent
   ],
   providers: []
 })
