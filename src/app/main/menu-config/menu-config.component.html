@@ -1,31 +1,30 @@
+<!-- [disabledIndexes]="!palette.isLeft ? disabledIndexes : []"  [ngClass]="classObj"-->
 <div class="menu-config-main">
   <div class="menu-config-head">
     <span class="config-head-l">导航配置</span>
     <span class="config-head-r">最多选5个</span>
   </div>
   <div class="menu-config-content">
-    <div class="config-content-l">
-      <span class="content-head l-head">已选择</span>
-      <ul class="config-content-list left-content">
-        <li>预约<i class="ye"></i></li>
-        <li>患者<i class="ye"></i></li>
-        <li>报表<i class="ye"></i></li>
-        <li>诊所<i class="ye"></i></li>
-        <li>诊所<i class="ye"></i></li>
-      </ul>
-    </div>
-    <div class="config-content-r">
-      <span class="content-head r-head">为选择</span>
-      <ul class="config-content-list right-content">
-        <li>运营</li>
-        <li>SCRM</li>
-        <li>知识库</li>
-        <li>系统配置</li>
-        <li>系统配置</li>
-        <li>系统配置</li>
-        <li>系统配置</li>
-        <li>系统配置</li>
-      </ul>
-    </div>
+      <kendo-sortable [data]="palettes" [disabledIndexes]="[0, 1]">
+        <ng-template let-palette="item">
+          <div [ngClass]="{'config-content-l':palette.isLeft,'config-content-r':!palette.isLeft}">
+            <span class="content-head" [ngClass]="{'l-head':palette.isLeft,'r-head':!palette.isLeft}">{{palette.name}}</span>
+            <ul class="config-content-list" [ngClass]="{'left-content':palette.isLeft,'right-content':!palette.isLeft}">
+            <kendo-sortable 
+              [data]="palette.data" 
+              [animation]="true"
+              zone="innerZone"
+              emptyText="不能为空"
+              (dataAdd)="onDataAdd(palette, $event)"
+              (dataRemove)="onDataRemove(palette, $event)"
+              (dragEnd)="onDragEnd(palette, $event)">
+              <ng-template let-item="item">
+                  <li class="config-li">{{item.name}}<i class="ye"></i></li>
+              </ng-template>
+            </kendo-sortable>
+          </ul>
+          </div>
+        </ng-template>
+    </kendo-sortable>
   </div>
 </div>

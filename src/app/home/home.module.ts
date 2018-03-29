@@ -10,6 +10,7 @@ import { PatientAppointmentComponent } from './patient-appointment/patient-appoi
 
 // 路由
 import { HomeRoutingModule } from './home-routing.module';
+import { HomeHeadComponent } from './home-head/home-head.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { HomeRoutingModule } from './home-routing.module';
   ],
   declarations: [
     HomeComponent,
-    PatientAppointmentComponent
+    PatientAppointmentComponent,
+    HomeHeadComponent
   ]
 })
 export class HomeModule { }

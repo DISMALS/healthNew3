@@ -39,9 +39,11 @@
                 color:$active-bg-color;
             }
             .left-content{
+                overflow-y: auto;
                 li{
                     color:$menu-bg-color;
                     background-color:transparent;
+                    cursor: move;
                     &:hover{
                         color:$base-color;
                         background-color:$active-bg-color;
@@ -50,6 +52,10 @@
                         display: inline-block;
                         margin-left:10px;
                         font-size:12px;
+                        &::before{
+                            font-family: 'iconfont';
+                            content:'\e633';
+                        }
                     }
                 }
             }
@@ -72,10 +78,23 @@
                 }
             }
         }
+        .dragable{
+            li{
+                &:hover{
+                    cursor: move;
+                }
+            }
+            
+        }
+        .undragable{
+            &:hover{
+                cursor: no-drop;
+            }
+        }
         .config-content-list{
             width:100%;
             height: 160px;
-            li{
+            .config-li{
                 width:calc("~100% - 10px");
                 height: 32px;
                 line-height: 32px;

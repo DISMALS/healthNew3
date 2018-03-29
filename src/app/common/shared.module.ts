@@ -10,6 +10,7 @@ import { SharedService } from './shared.service';
 
 // 功能插件
 import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { SortableModule } from '@progress/kendo-angular-sortable';
 
 // 全局指令模块
 import { DirectiveModule } from '../common/directive/directive.module';
@@ -23,7 +24,7 @@ import { DirectiveModule } from '../common/directive/directive.module';
   ],
   providers: [SharedService],
   declarations: [],
-  exports: [TranslateModule, NgZorroAntdModule, DirectiveModule],
+  exports: [TranslateModule, NgZorroAntdModule, DirectiveModule, SortableModule],
 })
 export class SharedModule {}
 

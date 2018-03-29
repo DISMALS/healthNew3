@@ -13,6 +13,11 @@ import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import { HeaderComponent } from './header/header.component';
 import { MenuConfigComponent } from './menu-config/menu-config.component';
+import { PatientSearchComponent } from './patient-search/patient-search.component';
+import { UserOperationComponent } from './user-operation/user-operation.component';
+import { WeichatComponent } from './weichat/weichat.component';
+import { InformationComponent } from './information/information.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
 
 @NgModule({
   imports: [
@@ -24,7 +29,12 @@ import { MenuConfigComponent } from './menu-config/menu-config.component';
   declarations: [
     MainComponent,
     HeaderComponent,
-    MenuConfigComponent
+    MenuConfigComponent,
+    PatientSearchComponent,
+    UserOperationComponent,
+    WeichatComponent,
+    InformationComponent,
+    AddPatientComponent
   ],
   providers: []
 })

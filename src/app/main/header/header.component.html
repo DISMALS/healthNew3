@@ -3,24 +3,19 @@
   <div class="menu pull-left">
     <ul class="menu-ul">
       <li class="menu-item pull-left" *ngFor="let menu of menus" routerLinkActive="menu-item-active">
-        <nz-dropdown [nzTrigger]="'click'">
-          <a class="menu-link" nz-dropdown [routerLink]="menu.route">{{menu.levelOne}}</a>
-          <ul nz-menu>
-            <ng-container *ngFor="let itemMenu of menu.levelTwo">
-                <ng-container *ngIf="itemMenu.subMenu.length == 0">
-                    <li nz-menu-item><a [innerHtml]="itemMenu.item" class="font-size-14"></a></li>
-                </ng-container>
-                <ng-container *ngIf="itemMenu.subMenu.length > 0">
-                    <li nz-submenu>
-                        <a [innerHtml]="itemMenu.item" title class="font-size-14"></a>
-                        <ul *ngFor="let subMenu of itemMenu.subMenu">
-                          <li nz-menu-item><a [innerHtml]="subMenu.subItem" class="font-size-14"></a></li>
-                        </ul>
-                    </li>
-                </ng-container>
-            </ng-container>
-          </ul>
-        </nz-dropdown>
+        <div *ngIf="!menu.levelTwo.length; else dropDownList">
+          <a class="menu-link" [routerLink]="menu.route">{{menu.levelOne}}</a>
+        </div>
+        <ng-template #dropDownList>
+          <nz-dropdown [nzTrigger]="'hover'">
+            <a class="menu-link" nz-dropdown [routerLink]="menu.route">{{menu.levelOne}}</a>  
+            <ul nz-menu>
+              <ng-container *ngFor="let itemMenu of menu.levelTwo">
+                <li nz-menu-item><a [innerHtml]="itemMenu.item" class="font-size-14"></a></li>
+              </ng-container>
+            </ul>
+          </nz-dropdown>
+        </ng-template>
       </li>
       <li class="menu-item pull-left">
         <nz-dropdown [nzTrigger]="'hover'">
@@ -41,8 +36,10 @@
     </ul>
   </div>
   <div class="menu-more">
-    
-    
-
+    <app-user-operation></app-user-operation>
+    <app-weichat></app-weichat>
+    <app-information></app-information>
+    <app-add-patient></app-add-patient>
+    <app-patient-search></app-patient-search>
   </div>
 </div>

@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // 功能插件
 import { NgZorroAntdModule, NzMessageService, NZ_MESSAGE_CONFIG, NzNotificationService } from 'ng-zorro-antd'; // UI组件
+import { SortableModule } from '@progress/kendo-angular-sortable';
 // import { NotifyModule, NotifyService } from 'notify-angular'; // 消息提示
 // import { LoadingBarModule, LoadingBarService } from '@ngx-loading-bar/core';
 
@@ -72,7 +73,7 @@ export function createTranslateLoader(http: Http) {
     NzMessageService,
     NzNotificationService
   ],
-  exports: [],
+  exports: [SortableModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
