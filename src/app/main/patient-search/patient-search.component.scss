@@ -1,0 +1,23 @@
+@import "../../common/scss/all-color.scss";
+.information{
+    height: 44px;
+    line-height: 44px;
+    position:relative;
+    .information-btn{
+        position: relative;
+        display: block;
+        padding:0px 10px;
+        height: 44px;
+        .information-icon{
+            font-size: 27px;
+            color:$btn-bg-color5;
+        }
+    }
+    .active{
+        color:$base-color;
+        background-color:$active-user-operation-color;
+        .information-icon{
+            color:$base-color;
+        }
+    }
+}
