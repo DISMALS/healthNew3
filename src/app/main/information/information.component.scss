@@ -1,0 +1,48 @@
+@import "../../common/scss/all-color.scss";
+$width:100%;
+.information{
+    height: 44px;
+    line-height: 44px;
+    .information-btn{
+        position: relative;
+        display: block;
+        padding:0px 10px;
+        height: 44px;
+        .information-icon{
+            font-size: 27px;
+            color:$btn-bg-color5;
+        }
+    }
+    .active{
+        color:$base-color;
+        background-color:$active-user-operation-color;
+        .information-icon{
+            color:$base-color;
+        }
+    }
+}
+.message{
+    position: absolute;
+    top:7px;
+    right:0px;
+    background-color:$btn-bg-color3;
+    border-radius: 100%;
+    min-width: 18px;
+    height: 18px;
+    color:$base-color;
+    font-size: 12px;
+    line-height:18px;
+    padding:0px 2px;
+}
+.information-main{
+    // width:210px;
+    .sys-announcement{
+        background-color:$active-bg-color;
+    }
+    .business-remind{
+        background-color:$btn-bg-color4;
+    }
+    .warning-information{
+        background-color:$btn-bg-color3;
+    }
+}

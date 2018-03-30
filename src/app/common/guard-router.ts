@@ -3,13 +3,13 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 
 @Injectable()
 export class CanActivateTeam implements CanActivate {
-    constructor(public route: Router){}
+    constructor(public route: Router) {}
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot ){
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot ) {
         console.log(route);
         console.log(state);
-        let isSkip = true;
-        if(!isSkip){
+        const isSkip = true;
+        if (!isSkip) {
             this.route.navigate(['/login']);
             return isSkip;
         }

@@ -1,16 +1,16 @@
-<div class="user-operation">
-    <nz-dropdown [nzTrigger]="'click'">
-      <a class="operation-head">
-        <span class="user-pic"><img src="http://placehold.it/24x24" alt=""></span>
-        大帅哥
-      </a>
-      <ul nz-menu class="user-operction-list">
-        <li nz-menu-item><a class="operation-item"><i class="account-icon"></i>我的账号</a></li>
-        <li nz-menu-item><a class="operation-item"><i class="password-icon"></i>修改密码</a></li>
-        <li nz-menu-item><a class="operation-item"><i class="help-icon"></i>帮助中心</a></li>
-        <li nz-menu-item><a class="operation-item"><i class="personal-config-icon"></i>个人配置</a></li>
-        <li nz-menu-item><a class="operation-item"><i class="lock-icon"></i>锁屏</a></li>
-        <li nz-menu-item><a class="operation-item"><i class="exit-icon"></i>退出</a></li>
-      </ul>
-    </nz-dropdown>
-  </div>
+<div class="user-operation pull-right">
+  <nz-dropdown [nzTrigger]="'click'" [nzPlacement]="'bottomRight'" (nzVisibleChange)="isShow($event)">
+    <a class="operation-head" [ngClass]="{'active':isActive}" nz-dropdown>
+      <span class="user-pic pull-left"><img src="http://placehold.it/24x24" alt=""></span>
+      大帅哥
+    </a>
+    <ul nz-menu class="user-operation-list">
+      <li nz-menu-item><a class="operation-item font-size-14"><i class="account-icon m-r-10"></i>我的账号</a></li>
+      <li nz-menu-item><a class="operation-item font-size-14"><i class="password-icon m-r-10"></i>修改密码</a></li>
+      <li nz-menu-item><a class="operation-item font-size-14"><i class="help-icon m-r-10"></i>帮助中心</a></li>
+      <li nz-menu-item><a class="operation-item font-size-14"><i class="confguration-icon m-r-10"></i>个人配置</a></li>
+      <li nz-menu-item><a class="operation-item font-size-14"><i class="lock-icon m-r-10"></i>锁屏</a></li>
+      <li nz-menu-item><a class="operation-item font-size-14"><i class="exit-icon m-r-10"></i>退出</a></li>
+    </ul>
+  </nz-dropdown>
+</div>

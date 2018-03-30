@@ -1,0 +1,61 @@
+@import "../../common/scss/all-color.scss";
+.user-operation{
+    height: 44px;
+    .operation-head{
+        display: block;
+        height: 44px;
+        line-height: 44px;
+        padding:0px 10px;
+        font-size: 14px;
+        color:$btn-bg-color5;
+        .user-pic{
+            display: flex;
+            width:26px;
+            height: 26px;
+            margin: 9px 10px 0px 0px;
+            border-radius: 100%;
+            border:2px solid $btn-bg-color5;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            img{
+                width:100%;
+                height: auto;
+                display: block;
+            }
+        }
+    }
+    .active{
+        color:$base-color;
+        background-color:$active-user-operation-color;
+        .user-pic{
+            border:2px solid $base-color;
+        }
+    }
+}
+.user-operation-list{
+    min-width:125px;
+    li{
+        .operation-item{
+            height: 32px;
+            line-height: 32px;
+            padding:0px 8px;
+            .account-icon{
+                font-size: 16px;
+            }
+            .password-icon{
+                font-size: 19px;
+            }
+            .help-icon{
+                font-size: 16px;
+            }
+            .lock-icon{
+                font-size: 18px;
+            }
+            .exit-icon{
+                font-size: 19px;
+            }
+        }
+        
+    }
+}

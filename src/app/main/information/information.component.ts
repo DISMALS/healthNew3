@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./information.component.scss']
 })
 export class InformationComponent implements OnInit {
-
+  public isActive: Boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
 
+  // 下拉菜单显示状态
+  isShow(e) {
+    this.isActive = e;
+    if (e) {
+      setTimeout( () => {
+      }, 200);
+    }
+  }
 }

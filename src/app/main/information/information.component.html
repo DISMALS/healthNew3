@@ -1,3 +1,20 @@
-<p>
-  information works!
-</p>
+<div class="information pull-right">
+  <nz-dropdown [nzTrigger]="'click'" (nzVisibleChange)="isShow($event)">
+    <a class="information-btn" [ngClass]="{'active':isActive}" nz-dropdown>
+      <i class="information-icon"></i>
+      <i class="message">99+</i>
+    </a>
+    <div nz-menu class="information-main">
+      <dl class="information-list">
+        <dt class="information-title">系统公告</dt>
+        <dd class="information-content">
+          <div class="message-tit">
+            <i class="sys-icon"></i>
+            这里显示消息时间
+          </div>
+          <p class="message-content">这里是消息的内容这里是消息的内容这里是消息的内容这里是消息的内容</p>
+        </dd>
+      </dl>
+    </div>
+  </nz-dropdown>
+</div>

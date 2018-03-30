@@ -1,0 +1,27 @@
+@import "../../common/scss/all-color.scss";
+.weichat{
+    height: 44px;
+    line-height: 44px;
+    position: relative;
+    .weichat-btn{
+        display: block;
+        padding:0px 10px;
+        .weichat-icon{
+            font-size: 27px;
+            color:$btn-bg-color5;
+        }
+    }
+}
+.message{
+    position: absolute;
+    top:7px;
+    right:0px;
+    background-color:$btn-bg-color3;
+    border-radius: 100%;
+    min-width: 18px;
+    height: 18px;
+    color:$base-color;
+    font-size: 12px;
+    line-height:18px;
+    padding:0px 2px;
+}
