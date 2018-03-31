@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+// import '../../../assets/images/logo.png';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,6 +9,7 @@ export class HeaderComponent implements OnInit {
   public menus: Array<any>;
   public menuAllList: Array<any>;
   public changelang: Boolean = true;
+  public logoPic = '../../../assets/images/logo.png';
 
   constructor() { }
 
