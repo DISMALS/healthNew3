@@ -1,6 +1,6 @@
 <div class="information pull-right">
-  <nz-dropdown [nzTrigger]="'click'" [nzClickHide]="false">
-      <a class="information-btn" [ngClass]="{'active':isActive}" (click)="isShow($event,informationMain)" nz-dropdown>
+  <nz-dropdown [nzTrigger]="'click'" [nzClickHide]="false" (nzVisibleChange)="isShow($event)">
+      <a class="information-btn" [ngClass]="{'active':isActive}" nz-dropdown>
         <i class="information-icon"></i>
         <i class="message">99+</i>
       </a>

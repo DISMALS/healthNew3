@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // 国际化
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
@@ -22,11 +22,12 @@ import { DirectiveModule } from '../common/directive/directive.module';
     TranslateModule.forChild(),
     NgZorroAntdModule,
     DirectiveModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [SharedService],
   declarations: [],
-  exports: [TranslateModule, NgZorroAntdModule, DirectiveModule, SortableModule, FormsModule],
+  exports: [TranslateModule, NgZorroAntdModule, DirectiveModule, SortableModule, FormsModule, ReactiveFormsModule],
 })
 export class SharedModule {}
 

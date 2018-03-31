@@ -36,10 +36,16 @@
     </ul>
   </div>
   <div class="menu-more pull-right">
+    <div class="changeLang pull-right">
+      <nz-switch [ngModel]="changelang">
+        <i class="" checked>中</i>
+        <i class="" unchecked>英</i>
+      </nz-switch>
+    </div>
     <app-user-operation></app-user-operation>
     <app-weichat></app-weichat>
     <app-information></app-information>
     <app-add-patient></app-add-patient>
-    <!-- <app-patient-search></app-patient-search> -->
+    <app-patient-search></app-patient-search> 
   </div>
 </div>

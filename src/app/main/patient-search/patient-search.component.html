@@ -1,3 +1,35 @@
-<div class="patient-search">
-  
+<div class="patient-search pull-right m-r-10">
+    <nz-dropdown [nzTrigger]="'click'">
+        <div class="search-input" nz-dropdown>
+            <input type="text" [formControl]="titleFilter" class="search font-size-12" placeholder="姓名/病历号/拼音/手机号">
+            <a class="search-btn"><i class="search-icon"></i></a>
+        </div>
+        <div class="search-list" nz-menu>
+            <div class="search-title">
+                <span class="search-count">最近搜索<i class="number">{{patientList.length}}</i>条记录</span>
+                <a class="clear-btn pull-right" (click)="clear()">清空消息<i class='clear'></i></a>
+            </div>
+            <div class="search-no-result" *ngIf="patientList.length == 0">
+                <p class="no-result font-size-12">你好，暂无您搜索的信息！</p>
+                <a class="add-patient m-t-10 p-r-10">
+                    <i class="add-icon"></i>
+                    新增患者
+                </a>
+            </div>
+            <div class="patient-list" *ngIf="patientList.length > 0">
+                <div class="search-item" *ngFor="let patient of patientList">
+                    <span class="search-item-title">
+                        <b class="p-name font-size-14 m-r-5" [innerHTML]="patient.name"></b>
+                        <i class="font-size-12 m-r-5" [ngClass]="{'fale':patient.gender === 'F','male':patient.gender === 'M','unknow':patient.gender === 'O'}" [innerHTML]="patient.sex"></i>
+                        <i class="birth font-size-12">{{patient.birthday | date:'shortDate'}}</i>
+                    </span>
+                    <p class="other-info font-size-12">
+                        <span class="other-info-item m-r-5"><i class="mrn-icon"></i>{{patient.mrn}}</span>
+                        <span class="other-info-item"><i class="phon-icon"></i>{{patient.phon}}</span>
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </nz-dropdown>
 </div>

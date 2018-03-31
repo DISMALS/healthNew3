@@ -36,6 +36,7 @@ const init_options = [{
   styleUrls: ['./add-patient.component.scss']
 })
 export class AddPatientComponent implements OnInit {
+  public isActive: Boolean = false;
   public radioValue;
   public _date = null;
   public _options = null;
@@ -49,6 +50,11 @@ export class AddPatientComponent implements OnInit {
   }
   _console(value) {
     console.log(value);
+  }
+
+  // 下拉菜单显示状态
+  isShow(e) {
+    this.isActive = e;
   }
 
 }

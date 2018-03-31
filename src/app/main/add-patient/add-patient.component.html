@@ -1,78 +1,88 @@
-<div class="add-patient">
-  <nz-dropdown [nzTrigger]="'click'" [nzClickHide]="false" [nzPlacement]="'bottomRight'">
-    <a class="add-patient-btn" nz-dropdown><i class="add-icon"></i></a>
+<div class="add-patient pull-right">
+  <nz-dropdown [nzTrigger]="'click'" [nzClickHide]="false" [nzPlacement]="'bottomRight'"  (nzVisibleChange)="isShow($event)">
+    <a class="add-patient-btn" [ngClass]="{'active':isActive}" nz-dropdown><i class="add-icon"></i></a>
     <div class="add-patient-main" nz-menu>
       <div class="patient-main-title">
-        <span class="title-left">
-          <i class="border"></i>
-          <h3 class="patient-name">这是患者名字</h3>
-          <p class="patient-info">2017/09/32</p>
+        <span class="title-left pull-left">
+          <i class="border pull-left m-t-5 m-r-5"></i>
+          <h3 class="patient-name font-size-16">这是患者名字</h3>
+          <p class="patient-info font-size-12">2017/09/32</p>
         </span>
-        <a class="close"><i class="close-icon"></i></a>
+        <a class="close pull-right"><i class="close-icon"></i></a>
       </div>
       <div class="patient-form">
         <form name="addPatient">
           <div class="patient-main-info">
-            <div class="label-com">
+            <div class="label-com m-t-15">
               <i class="mandatory"></i>
-              <span class="label-name">姓名:</span>
-              <!-- <input class="input" type="text" placeholder="请输入患者姓名"> -->
-              <nz-input class="input" [(ngModel)]="inputValue" name="patient-name" [nzPlaceHolder]="'请输入患者姓名'" (ngModelChange)="_console($event)"></nz-input>
+              <span class="label-name pull-left m-r-10 font-size-14">姓名:</span>
+              <div class="input pull-left">
+                <nz-input [(ngModel)]="inputValue" name="patient-name" [nzPlaceHolder]="'请输入患者姓名'" (ngModelChange)="_console($event)"></nz-input>
+              </div>
             </div>
-            <div class="label-com">
+            <div class="label-com m-t-15">
               <i class="mandatory"></i>
-              <span class="label-name">性别:</span>
-              <div class="gender-chooise">
-                  <nz-radio-group [(ngModel)]="radioValue" [nzSize]="'large'" name="gender">
-                    <label nz-radio-button [nzValue]="'A'">
+              <span class="label-name pull-left m-r-10 font-size-14">性别:</span>
+              <div class="gender-chooise pull-left">
+                  <nz-radio-group [(ngModel)]="radioValue" [nzSize]="'large'" name="gender" class="radio-group">
+                    <label class="gender-btn font-size-14" nz-radio-button [nzValue]="'A'">
                       <span>男</span>
                     </label>
-                    <label nz-radio-button [nzValue]="'B'">
+                    <label class="gender-btn mar-both font-size-14" nz-radio-button [nzValue]="'B'">
                       <span>女</span>
                     </label>
-                    <label nz-radio-button [nzValue]="'C'">
-                      <span>其它</span>
+                    <label class="gender-btn font-size-14" nz-radio-button [nzValue]="'C'">
+                      <span>未知</span>
                     </label>
                   </nz-radio-group>
                 </div>
             </div>
-            <div class="label-com">
+            <div class="label-com m-t-15">
               <i class="mandatory"></i>
-              <span class="label-name">出生:</span>
-              <div class="date-chooise">
-                  <nz-datepicker [(ngModel)]="_date" [nzPlaceHolder]="'请选择患者出生日期'" name="birthday"></nz-datepicker>
+              <span class="label-name pull-left m-r-10 font-size-14">出生:</span>
+              <div class="date-chooise pull-left">
+                  <nz-datepicker class="date-picker" [(ngModel)]="_date" [nzPlaceHolder]="'请选择患者出生日期'" name="birthday"></nz-datepicker>
               </div>
             </div>
-            <div class="label-com">
+            <div class="label-com m-t-15">
               <i class="mandatory"></i>
-              <span class="label-name">手机号:</span>
-              <nz-input class="input" [(ngModel)]="inputValue" [nzPlaceHolder]="'请输入患者姓名'" (ngModelChange)="_console($event)" name="phon"></nz-input>
+              <span class="label-name pull-left m-r-10 font-size-14">手机号:</span>
+              <div class="input pull-left">
+                <nz-input class="input pull-left" [(ngModel)]="inputValue" [nzPlaceHolder]="'请输入患者姓名'" (ngModelChange)="_console($event)" name="phon"></nz-input>
+              </div>
             </div>
-            <div class="label-com">
-              <span class="label-name">病历号:</span>
-              <nz-input class="input" [(ngModel)]="inputValue" [nzPlaceHolder]="'请输入患者姓名'" (ngModelChange)="_console($event)" name="mrn"></nz-input>
+            <div class="label-com m-t-15">
+              <span class="label-name pull-left m-r-10 font-size-14">病历号:</span>
+              <div class="input pull-left">
+                <nz-input class="input pull-left" [(ngModel)]="inputValue" [nzPlaceHolder]="'请输入患者姓名'" (ngModelChange)="_console($event)" name="mrn"></nz-input>
+              </div>
             </div>
           </div>
-          <a class="more-info">更多信息<i class="show-down"></i></a>
-          <div class="label-com">
+          <!-- <a class="more-info m-t-15 font-size-14">更多信息<i class="show-down m-l-10"></i></a> -->
+          <div class="label-com m-t-15">
             <i class="mandatory"></i>
-            <span class="label-name">地址:</span>
-            <nz-cascader
-              [nzOptions]="_options"
-              [(ngModel)]="_value"
-              (ngModelChange)="_console($event)"
-              (nzChange)="_console($event)"
-              name="address">
-            </nz-cascader>
-            <nz-input class="input" [(ngModel)]="inputValue" [nzPlaceHolder]="'请输入患者姓名'" (ngModelChange)="_console($event)" name="address-info"></nz-input>
+            <span class="label-name pull-left m-r-10 font-size-14">地址:</span>
+            <div class="address-input pull-left">
+              <nz-cascader
+                [nzOptions]="_options"
+                [(ngModel)]="_value"
+                (ngModelChange)="_console($event)"
+                (nzChange)="_console($event)"
+                name="address"
+                class="address-input-select m-b-15">
+              </nz-cascader>
+              <nz-input [(ngModel)]="inputValue" [nzPlaceHolder]="'请输入患者姓名'" (ngModelChange)="_console($event)" name="address-info"></nz-input>
+            </div>
           </div>
-          <div class="label-com">
-            <span class="label-name">邮箱:</span>
-            <nz-input class="input" [(ngModel)]="inputValue" [nzPlaceHolder]="'请输入患者姓名'" (ngModelChange)="_console($event)" name="email"></nz-input>
+          <div class="label-com m-t-15">
+            <span class="label-name pull-left m-r-10 font-size-14">邮箱:</span>
+            <div class="input pull-left">
+              <nz-input class="input pull-left" [(ngModel)]="inputValue" [nzPlaceHolder]="'请输入患者姓名'" (ngModelChange)="_console($event)" name="email"></nz-input>
+            </div>
           </div>
-          <div class="bottom-btn">
-            <button class="save-appoint">保存并预约</button>
-            <button class="save">保存</button>
+          <div class="bottom-btn m-t-15">
+            <button class="save-appoint font-size-14 m-r-20">保存并预约</button>
+            <button class="save font-size-14">保存</button>
           </div>
         </form>
       </div>

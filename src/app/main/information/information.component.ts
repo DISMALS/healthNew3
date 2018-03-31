@@ -17,7 +17,7 @@ export class InformationComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.informationList = [
-      new Information(1, 1, '这是消息内容', 343423),
+      new Information(1, 1, '这是消息内容这是消息内容这是消息内容这是消息内容这是消息内容这是消息内容这是消息内容这是消息内容这是消息内容', 343423),
       new Information(2, 2, '这是消息内容', 45243),
       new Information(3, 3, '这是消息内容', 23423),
       new Information(4, 1, '这是消息内容', 242353),
@@ -45,7 +45,7 @@ export class InformationComponent implements OnInit, AfterViewInit {
   }
 
   // 下拉菜单显示状态
-  isShow(e, informationMain) {
+  isShow(e) {
     this.isActive = e;
     setTimeout(() => {
       if (this.isActive) {

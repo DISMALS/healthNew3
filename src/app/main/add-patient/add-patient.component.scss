@@ -1,27 +1,160 @@
 @import "../../common/scss/all-color.scss";
 .add-patient{
-    .add-patient-btn{}
+    height: 44px;
+    line-height: 44px;
+    position:relative;
+    .add-patient-btn{
+        position: relative;
+        display: block;
+        padding:0px 10px;
+        height: 44px;
+        .add-icon{
+            font-size: 25px;
+            color:$btn-bg-color4;
+        }
+    }
+    .active{
+        color:$base-color;
+        background-color:$active-user-operation-color;
+        .add-icon{
+            color:$base-color;
+        }
+    }
 }
 .add-patient-main{
+    width:380px;
+    height: auto;
+    background-color:$base-color;
+    padding:20px;
     .patient-main-title{
-        .title-left{}
-        .border{}
-        .patient-name{}
-        .patient-info{}
-        .close{}
+        width:100%;
+        height: 40px;
+        overflow: hidden;
+        .title-left{
+            width:calc(100% - 20px);
+            height: 40px;
+        }
+        .border{
+            background:$active-bg-color;
+            border-radius:4px;
+            width:8px;
+            height:30px;
+        }
+        .patient-name{
+            line-height: 22px;
+            color:$font-color1;
+        }
+        .patient-info{
+            line-height: 18px;
+            color:$font-color1;
+        }
+        .close{
+            color:$btn-bg-color6;
+            font-size:20px;
+        }
     }
     .patient-form{
+        width:100%;
+        height: auto;
         .patient-main-info{
-            
+            width:100%;
+            height:auto;
         }
         .label-com{
-            .mandatory{}
-            .label-name{}
-            .input{}
+            width:100%;
+            min-height: 30px;
+            position:relative;
+            display: flow-root;
+            .mandatory{
+                width:6px;
+                height: 6px;
+                border-radius:100%;
+                background-color:$btn-bg-color6;
+                margin-top:8px;
+                position:absolute;
+                top:0;
+                left:0;
+            }
+            .label-name{
+                width:69px;
+                padding-left:11px;
+                height: 30px;
+                line-height: 30px;
+                color:$normal-font-color;
+            }
+            .input,.gender-chooise,.date-chooise,.address-input{
+                width:calc(100% - 80px);
+                min-height: 30px;
+                line-height: 28px;
+                .radio-group{
+                    width:100%;
+                    height: 30px;
+                }
+                .gender-btn{
+                    width:30%;
+                    height: 30px;
+                    line-height: 30px;
+                    display: inline-block;
+                    border-radius: 2px;
+                    border:1px solid $list-border-color;
+                    background-color:$base-color;
+                    color:$font-color2;
+                    text-align: center;
+                }
+                .mar-both{
+                    margin:0px 5%;
+                }
+                .ant-radio-button-wrapper-checked{
+                    color:$base-color;
+                    background-color:rgba($btn-bg-color7,.8);
+                    box-shadow:0 0 0 0 $menu-bg-color;
+                    border:none;
+                }
+                .date-picker{
+                    width:100%;
+                    height: 30px;
+                }
+                .address-input-select{
+                    width:100%;
+                    height: 30px;
+                }
+            }
+            
         }
-        .more-info{}
-        .bottom-btn{}
-        .save-appoint{}
-        .save{}
+        .more-info{
+            width: 100%;
+            height:30px;
+            display: block;
+            line-height: 30px;
+            text-align: right;
+            color:$active-bg-color;
+        }
+        .bottom-btn{
+            width: 100%;
+            height: 26px;
+            line-height: 24px;
+            text-align: right;
+        }
+        .save-appoint{
+            border:1px solid $btn-bg-color5;
+            width: 94px;
+            height: 26px;
+            text-align: center;
+            color:$warn-font-color;
+            background-color:$base-color;
+            border-radius:26px;
+            cursor: pointer;
+            outline: none;
+        }
+        .save{
+            width:58px;
+            height: 26px;
+            border:1px solid $btn-bg-color3;
+            background-color:$btn-bg-color3;
+            color:$base-color;
+            border-radius:26px;
+            cursor: pointer;
+            outline: none;
+        }
     }
 }

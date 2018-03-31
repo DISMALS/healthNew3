@@ -48,6 +48,10 @@ $width100:100%;
     .menu-more{
         height:44px;
         padding:0px 10px;
+        .changeLang{
+            margin-top:11px;
+            // transform: rotate(90deg);
+        }
     }
 }
 .ant-dropdown-menu-item > a, .ant-dropdown-menu-submenu-title > a{
