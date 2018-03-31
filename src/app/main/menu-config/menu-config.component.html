@@ -5,11 +5,11 @@
     <span class="config-head-r">最多选5个</span>
   </div>
   <div class="menu-config-content">
-      <kendo-sortable [data]="palettes" [disabledIndexes]="[0, 1]">
-        <ng-template let-palette="item">
-          <div [ngClass]="{'config-content-l':palette.isLeft,'config-content-r':!palette.isLeft}">
-            <span class="content-head" [ngClass]="{'l-head':palette.isLeft,'r-head':!palette.isLeft}">{{palette.name}}</span>
-            <ul class="config-content-list" [ngClass]="{'left-content':palette.isLeft,'right-content':!palette.isLeft}">
+    <kendo-sortable class="kendo-list" [data]="palettes" [disabledIndexes]="[0, 1]">
+      <ng-template let-palette="item">
+        <div [ngClass]="{'config-content-l':palette.isLeft,'config-content-r':!palette.isLeft}">
+          <span class="content-head" [ngClass]="{'l-head':palette.isLeft,'r-head':!palette.isLeft}">{{palette.name}}</span>
+          <ul class="config-content-list" [ngClass]="{'left-content':palette.isLeft,'right-content':!palette.isLeft}">
             <kendo-sortable 
               [data]="palette.data" 
               [animation]="true"
@@ -23,8 +23,12 @@
               </ng-template>
             </kendo-sortable>
           </ul>
-          </div>
-        </ng-template>
+        </div>
+      </ng-template>
     </kendo-sortable>
+    <div class="bottom-btn">
+      <a class="cancle font-size-12 m-r-15">取消</a>
+      <a class="sure font-size-12">确定</a>
+    </div>
   </div>
 </div>

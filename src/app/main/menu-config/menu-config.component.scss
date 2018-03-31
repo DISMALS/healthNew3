@@ -102,5 +102,23 @@
                 font-size: 14px;
             }
         }
+        .kendo-list{
+            display: flow-root;
+        }
+        .bottom-btn{
+            width:100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: right;
+            padding:0px 6px;
+            .cancle{
+                display: inline-block;
+                color:$warn-font-color;
+            }
+            .sure{
+                display: inline-block;
+                color:$active-bg-color;
+            }
+        }
     }
 }
