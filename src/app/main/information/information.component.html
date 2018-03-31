@@ -1,46 +1,53 @@
 <div class="information pull-right">
-    <a class="information-btn" [ngClass]="{'active':isActive}" (click)="isShow($event,informationMain)">
-      <i class="information-icon"></i>
-      <i class="message">99+</i>
-    </a>
-    <div #informationMain class="information-box">
-      <div class="information-main" *ngIf="isActive">
-        <div class="message-count font-size-12">
-          <span class="count">收到消息<i class="number">{{count}}</i>条</span>
-          <a class="clear-btn" (click)="clear()">清空消息<i class='clear'></i></a>
-        </div>
-        <div class="information-scroll-main">
-          <dl class="information-list">
-            <dt class="information-title">系统公告</dt>
-            <dd class="information-content">
-              <div class="message-tit">
-                <i class="sys-icon"></i>
-                这里显示消息时间
-              </div>
-              <p class="message-content">这里是消息的内容这里是消息的内容这里是消息的内容这里是消息的内容</p>
-            </dd>
-          </dl>
-          <dl class="information-list">
-            <dt class="information-title">系统公告</dt>
-            <dd class="information-content">
-              <div class="message-tit">
-                <i class="sys-icon"></i>
-                这里显示消息时间
-              </div>
-              <p class="message-content">这里是消息的内容这里是消息的内容这里是消息的内容这里是消息的内容</p>
-            </dd>
-          </dl>
-          <dl class="information-list">
-            <dt class="information-title">系统公告</dt>
-            <dd class="information-content">
-              <div class="message-tit">
-                <i class="sys-icon"></i>
-                这里显示消息时间
-              </div>
-              <p class="message-content">这里是消息的内容这里是消息的内容这里是消息的内容这里是消息的内容</p>
-            </dd>
-          </dl>
+  <nz-dropdown [nzTrigger]="'click'" [nzClickHide]="false">
+      <a class="information-btn" [ngClass]="{'active':isActive}" (click)="isShow($event,informationMain)" nz-dropdown>
+        <i class="information-icon"></i>
+        <i class="message">99+</i>
+      </a>
+      <div nz-menu>
+        <div class="information-box" [ngClass]="{'visibility-hidden':!isActive}">
+          <div class="information-main" #informationMain>
+            <div class="message-count font-size-12">
+              <span class="count">收到消息<i class="number">{{count}}</i>条</span>
+              <a class="clear-btn" (click)="clear()">清空消息<i class='clear'></i></a>
+            </div>
+            <div class="information-scroll-main">
+              <dl class="information-list" *ngIf="sysList.length > 0">
+                <dt class="information-title font-size-12">系统公告</dt>
+                <dd class="information-content" *ngFor="let sys of sysList">
+                  <div class="message-tit">
+                    <i class="ping sys-announcement"></i>
+                    {{sys.date | date:'short'}}
+                  </div>
+                  <p class="message-content font-size-12" [innerHtml]="sys.content"></p>
+                </dd>
+              </dl>
+              <dl class="information-list" *ngIf="bussinessList.length > 0">
+                <dt class="information-title font-size-12">业务提醒</dt>
+                <dd class="information-content" *ngFor="let bussiness of bussinessList">
+                  <div class="message-tit">
+                    <i class="ping business-remind"></i>
+                    {{bussiness.date | date:'short'}}
+                  </div>
+                  <p class="message-content font-size-12" [innerHtml]="bussiness.content"></p>
+                </dd>
+              </dl>
+              <dl class="information-list" *ngIf="wariningList.length > 0">
+                <dt class="information-title font-size-12">预警信息</dt>
+                <dd class="information-content" *ngFor="let warning of wariningList">
+                  <div class="message-tit">
+                    <i class="ping warning-information"></i>
+                    {{warning.date | date:'short'}}
+                  </div>
+                  <p class="message-content font-size-12" [innerHtml]="warning.content"></p>
+                </dd>
+              </dl>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+      
+  </nz-dropdown>
+    
+    
 </div>

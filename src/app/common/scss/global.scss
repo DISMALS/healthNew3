@@ -9,7 +9,7 @@ html,body{
     position: relative;
     font-family: 'PingFangSC-Semibold' !important;
     font-size: 12px;
-    background:$sys-bg-color;
+    background-color:$sys-bg-color !important;
 }
 i,em{
     font-style: normal;
