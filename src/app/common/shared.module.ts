@@ -15,6 +15,7 @@ import { SortableModule } from '@progress/kendo-angular-sortable';
 
 // 全局指令模块
 import { DirectiveModule } from '../common/directive/directive.module';
+import { MainLeftMenuComponent } from './components/main-left-menu/main-left-menu.component';
 
 @NgModule({
   imports: [
@@ -26,8 +27,8 @@ import { DirectiveModule } from '../common/directive/directive.module';
     ReactiveFormsModule
   ],
   providers: [SharedService],
-  declarations: [],
-  exports: [TranslateModule, NgZorroAntdModule, DirectiveModule, SortableModule, FormsModule, ReactiveFormsModule],
+  declarations: [MainLeftMenuComponent],
+  exports: [TranslateModule, NgZorroAntdModule, DirectiveModule, SortableModule, FormsModule, ReactiveFormsModule, MainLeftMenuComponent],
 })
 export class SharedModule {}
 

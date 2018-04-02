@@ -1,4 +1,9 @@
 <div class="main-content">
     <app-home-head></app-home-head>
-    <router-outlet></router-outlet>
+    <div class="main-content-wrrap m-t-15">
+        <app-main-left-menu [maskList]='maskListMock' [socketNum]="socketIsConnect" (switchComponent)="chooiseCom($event)"></app-main-left-menu>
+        <div class="main-right pull-left">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>

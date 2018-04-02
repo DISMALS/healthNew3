@@ -1,0 +1,12 @@
+<div class="main-left pull-left m-r-20">
+  <span class="mask-column font-size-14 p-l-15 p-r-15">任务栏<a class="config-btn pull-right"><i class="confguration-icon"></i></a></span>
+  <ul class="mask-list" *ngIf="maskList.length > 0">
+    <li class="mask-item" *ngFor="let mask of maskList; let i = index;">
+      <a class="mask-item-link p-l-15 p-r-15" [ngClass]="{'active':mask.active}" (click)="switchActive(i)">
+          <i class="mask-icon font-size-16 m-r-5 pull-left" [ngClass]="mask.iconClass"></i>
+          <span class="mask-title font-size-14 pull-left" [innerHTML]="mask.name"></span>
+          <i class="message font-size-12" *ngIf="socketNum" [innerHTML]="mask.num"></i>
+      </a>
+    </li>
+  </ul>
+</div>

@@ -18,6 +18,33 @@ p,ul,li,dl,dt,dd,ol{
     margin:0;
     padding:0;
 }
+
+.main-content{
+  width:100%;
+  height: 100%;
+  display:flow-root;
+  .common-head{
+    width:100%;
+    background:$base-color;
+    box-shadow:0 0 3px 0 rgba($box-shadow-color3,0.82);
+  }
+  .main-content-wrrap{
+      width:100%;
+      height: calc(100% - 118px);
+      background:rgba($base-color,.8);
+      box-shadow:0 0 10px 0 rgba($box-shadow-color3,0.50);
+      .main-left{
+          width:160px;
+          height: 100%;
+          background:$base-color;
+          box-shadow:0 0 10px 0 rgba($box-shadow-color2,0.40);
+      }
+      .main-right{
+          width:calc(100% - 200px);
+      }
+  }
+}
+
 .pull-left{
     float:left;
 }
@@ -327,6 +354,9 @@ p,ul,li,dl,dt,dd,ol{
 .p-l-10 {
   padding-left:10px !important;
 }
+.p-l-15 {
+  padding-left:15px !important;
+}
 .p-l-20 {
   padding-left:20px !important;
 }
@@ -344,6 +374,9 @@ p,ul,li,dl,dt,dd,ol{
 }
 .p-r-10 {
   padding-right:10px !important;
+}
+.p-r-15 {
+  padding-right:15px !important;
 }
 .p-r-20 {
   padding-right:20px !important;
